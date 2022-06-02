@@ -3,52 +3,34 @@
 * {
   box-sizing: border-box;
   font-family: Inter, sans-serif;
+  line-height: 1.5;
 }
 
 body {
   margin: 0;
-  color: #DEEBF8;
-  min-height: 100vh;
-  background: #282D35;
+  width: 100%;
+  padding: 0;
+  overflow-y: hidden;
+  /* min-height: 100vh; */
 }
 
-main h1 {
-  font-size: 2.7rem;
-}
+
+/*Nav*/
 
 nav {
+  width: 100%;
   display: flex;
   align-items: center;
-  background-color: #21222A;
+  background-color: #fff;
   height: 5rem;
   padding: 1rem 1.5rem;
   box-shadow: 0px 2px 3px rgba(0,0,0,0.4);
 }
 
-ul {
-  max-width: 400px;
+nav.dark {
+  background-color: #21222A;
 }
 
-ul li {
-  /* list-style: none; */
-  margin-bottom: 1rem;
-}
-
-/* change the color of the list style */
-li::marker {
-  color: #61DAFB;
-  font-size: 1.4rem;
-}
-
-/* ul li::before {
-  content: "\2022";
-  color: #61DAFB;
-  font-weight: bold;
-  display: inline-block; 
-  width: 1.2rem;
-  margin-left: -1em;
-  margin-bottom: 1rem;
-} */
 
 nav img {
   width: 3rem;
@@ -61,18 +43,129 @@ nav h3 {
   font-size: 1.5rem;
 }
 
-nav  h4 {
+nav .toggler {
   margin-left: auto;
+
+  display: flex;
+  align-items: center;
 }
 
-.main-div {
-  display: flex;
-  place-content: center;
-  background: url(../src/images/reactjs-icon2.png);
-  background-repeat: no-repeat;
-  background-position: right 85%;
+.toggler p {
+  font-size: 0.625rem;
+  font-weight: 600;
 }
+
+.toggle-slide {
+  transition: 1s ease;
+  width: 25px;
+  height: 13px;
+  background-color: #2B283A;
+  border-radius: 2rem;
+  margin-inline: 7px;
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border: 1px solid black;
+  box-sizing: content-box;
+}
+
+nav.dark .toggle-slide {
+  border-color: #fff;
+  background-color: #F5F5F5;
+}
+
+.toggle-slide-circle {
+  height: 13px;
+  width: 13px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+nav.dark .toggle-slide-circle {
+  background-color: #222;
+}
+
+.toggle-light {
+  color: #2B283A;
+}
+
+nav.dark .toggle-light {
+  color: #918E9B;
+}
+
+.toggle-dark {
+  color: #D5D4D8;
+}
+
+nav.dark .toggle-dark {
+  color: #FFFFFF;
+}
+
+nav.dark .toggle-slide {
+  justify-content: flex-end;
+}
+
+
+/*Main*/
 
 main {
-  margin-top: 3rem;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  color: #2B283A;
+  min-height: 95vh;
+  
+  background-color: #fff;
+  background: url(../src/images/reactjs-icon2.png);
+  background-repeat: no-repeat;
+  background-position: right 60%;
+}
+
+main.dark {
+  background-color: #282D35;
+  color: #DEEBF8;
+}
+
+.main-title {
+  font-size: 3rem;
+  text-align: left;
+}
+
+
+.main-facts {
+  max-width: 400px;
+  padding: 0;
+}
+
+.main-facts li {
+  margin-bottom: 1rem;
+}
+
+/* change the color of the list style */
+.main-facts li::marker {
+  color: #61DAFB;
+  font-size: 1.4rem;
+}
+
+
+@media screen and (max-width: 598px){
+  nav h3 {
+    font-size: 1.2rem;
+  }
+
+  main {
+    background-size: 5rem;
+  }
+  .main-title {
+    font-size: 1.8rem;
+  }
+
+  .main-facts {
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-left: 2rem;
+  }
 }
